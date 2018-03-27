@@ -1,0 +1,8 @@
+D:\Projetos\teste-dextra\dev-test\src\Services\obj\Debug\netstandard2.0\Services.csproj.CoreCompileInputs.cache
+D:\Projetos\teste-dextra\dev-test\src\Services\obj\Debug\netstandard2.0\Services.AssemblyInfoInputs.cache
+D:\Projetos\teste-dextra\dev-test\src\Services\obj\Debug\netstandard2.0\Services.AssemblyInfo.cs
+D:\Projetos\teste-dextra\dev-test\src\Services\bin\Debug\netstandard2.0\Services.deps.json
+D:\Projetos\teste-dextra\dev-test\src\Services\bin\Debug\netstandard2.0\Services.dll
+D:\Projetos\teste-dextra\dev-test\src\Services\bin\Debug\netstandard2.0\Services.pdb
+D:\Projetos\teste-dextra\dev-test\src\Services\obj\Debug\netstandard2.0\Services.dll
+D:\Projetos\teste-dextra\dev-test\src\Services\obj\Debug\netstandard2.0\Services.pdb

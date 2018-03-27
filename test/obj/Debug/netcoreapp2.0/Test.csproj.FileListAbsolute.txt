@@ -1,0 +1,16 @@
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Test.deps.json
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Test.runtimeconfig.json
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Test.runtimeconfig.dev.json
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Test.dll
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Test.pdb
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Services.dll
+D:\Projetos\teste-dextra\dev-test\test\bin\Debug\netcoreapp2.0\Services.pdb
+D:\Projetos\teste-dextra\dev-test\test\obj\Debug\netcoreapp2.0\Test.csproj.CoreCompileInputs.cache
+D:\Projetos\teste-dextra\dev-test\test\obj\Debug\netcoreapp2.0\Test.AssemblyInfoInputs.cache
+D:\Projetos\teste-dextra\dev-test\test\obj\Debug\netcoreapp2.0\Test.AssemblyInfo.cs
+D:\Projetos\teste-dextra\dev-test\test\obj\Debug\netcoreapp2.0\Test.csproj.CopyComplete
+D:\Projetos\teste-dextra\dev-test\test\obj\Debug\netcoreapp2.0\Test.dll
+D:\Projetos\teste-dextra\dev-test\test\obj\Debug\netcoreapp2.0\Test.pdb
