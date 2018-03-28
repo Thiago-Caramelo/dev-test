@@ -1,0 +1,26 @@
+version: '3'
+ 
+services:
+  app:
+    build:
+      context:  ./src/App
+      dockerfile: Dockerfile
+    expose:
+      - "5000"
+      
+  api:
+    build:
+      context:  ./src/Api
+      dockerfile: Dockerfile
+    expose:
+      - "5001"      
+ 
+  proxy:
+    build:
+      context:  ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    links:
+      - app
+      - api
