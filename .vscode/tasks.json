@@ -7,9 +7,13 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/test/Test.csproj"
+                "${workspaceFolder}/i-burguer.sln"
             ],
-            "problemMatcher": "$msCompile"
+            "problemMatcher": "$msCompile",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }
