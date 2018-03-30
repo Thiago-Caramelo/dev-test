@@ -41,3 +41,5 @@ global.json
 BenchmarkDotNet.Artifacts/
 .idea/
 msbuild.binlog
+test/bin/
+test/obj/
