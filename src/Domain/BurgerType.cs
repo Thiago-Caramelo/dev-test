@@ -2,7 +2,7 @@ using System;
 
 namespace Domain
 {
-    public enum BurguerType
+    public enum BurgerType
     {
         XBacon = 1,
         XBurguer = 2,
