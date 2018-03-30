@@ -16,7 +16,7 @@ namespace Test
 
         public TestRepository()
         {
-            var xBurger = new Burger()
+            var XBacon = new Burger()
             {
                 Type = BurgerType.XBacon,
                 BurgerIngredients = {
@@ -26,7 +26,7 @@ namespace Test
                     }
             };
 
-            _localBurgerDb.Add(xBurger);
+            _localBurgerDb.Add(XBacon);
         }
 
         public Burger GetBurguerByType(BurgerType type)
