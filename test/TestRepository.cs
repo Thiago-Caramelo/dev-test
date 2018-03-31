@@ -35,7 +35,40 @@ namespace Test
                 }
             };
 
+            var XBurger = new Burger()
+            {
+                Type = BurgerType.XBurguer,
+                BurgerIngredients = {
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] }
+                }
+            };
+
+            var xEgg = new Burger()
+            {
+                Type = BurgerType.XEgg,
+                BurgerIngredients = {
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Egg] },
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] }
+                }
+            };
+
+            var xEggBacon = new Burger()
+            {
+                Type = BurgerType.XEggBacon,
+                BurgerIngredients = {
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Egg] },
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] },
+                    new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Bacon] }
+                }
+            };
+
             _localBurgerDb.Add(XBacon);
+            _localBurgerDb.Add(XBurger);
+            _localBurgerDb.Add(xEgg);
+            _localBurgerDb.Add(xEggBacon);
         }
 
         public Burger GetBurguerByType(BurgerType type)
