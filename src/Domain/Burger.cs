@@ -12,7 +12,12 @@ namespace Domain
         public IList<SaleDiscount> SaleDiscounts { get; set; } = new List<SaleDiscount>();
         public decimal Price()
         {
-            return Price(null);
+            return Price(new List<ISale>());
+        }
+        public decimal Price(ISale sale)
+        {
+            var sales = new List<ISale>() { sale };
+            return Price(sales);
         }
         public decimal Price(IList<ISale> sales)
         {
