@@ -5,6 +5,7 @@ namespace Infra
 {
     public interface IRepository
     {
-        Burger GetBurguerByType(BurgerType type);
+        Burger GetBurgerByType(BurgerType type);
+        Ingredient GetIngredientByType(IngredientType ingredientType);
     }    
 }
