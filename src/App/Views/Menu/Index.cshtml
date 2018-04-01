@@ -58,6 +58,9 @@
                                     <li>@ingredientDescription</li>
                                 }
                             </ul>
+                            
+                        </div>
+                        <div class="card-footer">
                             <button type="button" class="btn btn-lg btn-block btn-primary">Comprar</button>
                         </div>
                     </div>
@@ -75,9 +78,17 @@
                                 <ul class="list-unstyled mt-3 mb-4">
                                     @foreach (var ingredients in Model.Ingredients)
                                     {
-                                        <li>@ingredients.IngredientDescription</li>
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control bg-white" value=@ingredients.IngredientDescription readonly>
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-secondary" type="button">+</button>
+                                                <button class="btn btn-outline-secondary" type="button">-</button>
+                                            </div>
+                                        </div>
                                     }
                                 </ul>                                
+                            </div>
+                            <div class="card-footer">
                                 <button type="button" class="btn btn-lg btn-block btn-primary">Comprar</button>
                             </div>
                         </div>                        
