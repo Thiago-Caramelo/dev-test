@@ -15,65 +15,53 @@ namespace Test
             { IngredientType.Egg, new Ingredient () { Description = "Ovo", Price = 0.80m, IngredientType = IngredientType.Egg } },
             { IngredientType.Cheese, new Ingredient () { Description = "Queijo", Price = 1.50m, IngredientType = IngredientType.Cheese } }
         };
-        public Dictionary<IngredientType, Ingredient> Ingredients
-        {
-            get { return _ingredients; }
-        }
-        
-
         private readonly IList<Burger> _localBurgerDb = new List<Burger>();
-
         public TestRepository()
         {
-            var XBacon = new Burger()
-            {
-                Type = BurgerType.XBacon,
-                BurgerIngredients = {
+            var XBacon = new Burger(BurgerType.XBacon.ToString(),
+            new List<BurgerIngredient>(){
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Bacon] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] }
-                }
-            };
+                }, BurgerType.XBacon
+            );
 
-            var XBurger = new Burger()
-            {
-                Type = BurgerType.XBurguer,
-                BurgerIngredients = {
+            var XBurger = new Burger(BurgerType.XBurguer.ToString(),
+            new List<BurgerIngredient>(){
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] }
-                }
-            };
+            }, BurgerType.XBurguer
+            );
 
-            var xEgg = new Burger()
-            {
-                Type = BurgerType.XEgg,
-                BurgerIngredients = {
+            var xEgg = new Burger(BurgerType.XEgg.ToString(),
+            new List<BurgerIngredient>() {
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Egg] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] }
-                }
-            };
+            }, BurgerType.XEgg
+            );
 
-            var xEggBacon = new Burger()
-            {
-                Type = BurgerType.XEggBacon,
-                BurgerIngredients = {
+            var xEggBacon = new Burger(BurgerType.XEggBacon.ToString(),
+            new List<BurgerIngredient>() {
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Egg] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Hamburger] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Cheese] },
                     new BurgerIngredient() { Qty = 1, Ingredient = _ingredients[IngredientType.Bacon] }
-                }
-            };
+            }, BurgerType.XEggBacon
+            );
 
             _localBurgerDb.Add(XBacon);
             _localBurgerDb.Add(XBurger);
             _localBurgerDb.Add(xEgg);
             _localBurgerDb.Add(xEggBacon);
         }
-
-        public Burger GetBurguerByType(BurgerType type)
+        public Burger GetBurgerByType(BurgerType type)
         {
             return _localBurgerDb.FirstOrDefault(filter => filter.Type == type);
+        }
+        public Ingredient GetIngredientByType(IngredientType ingredientType)
+        {
+            return _ingredients[ingredientType];
         }
     }
 }
