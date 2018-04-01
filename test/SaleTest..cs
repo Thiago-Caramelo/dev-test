@@ -23,11 +23,8 @@ namespace Test
             Assert.AreEqual<decimal>(burgerOriginalPrice * discount, burgerSalePrice);
         }
         [TestMethod]
-        public void Extra_Hamburger_Burger_Should_Be_Proportionally_Cheaper()
+        public void Extra_Hamburger_Burger_Should_Be_Proportionally_Cheaper_When_Qty_Is_Multiple_Of_3()
         {
-            // pegar a quantidade pedida e ver se é multiplo de 3, ou seja se dividir por 3 e não tive resto
-            // para saber quanto o cliente vai pagar é só dividir por 1,5
-
             var repository = new TestRepository();
             var saleBurger = repository.GetBurgerByType(BurgerType.XBurguer);
             var burger  = repository.GetBurgerByType(BurgerType.XBurguer);
@@ -36,6 +33,21 @@ namespace Test
             burger.SetIngredientQuantity(repository.GetIngredientByType(IngredientType.Hamburger), 2);
             
             var saleBurgerPrice = saleBurger.Price(new ExtraHamburger());
+            var burgerPrice = burger.Price();
+
+            Assert.AreEqual<decimal>(burgerPrice, saleBurgerPrice);
+        }
+        [TestMethod]
+        public void Extra_Cheese_Burger_Should_Be_Proportionally_Cheaper_When_Qty_Is_Multiple_Of_3()
+        {
+            var repository = new TestRepository();
+            var saleBurger = repository.GetBurgerByType(BurgerType.XBacon);
+            var burger = repository.GetBurgerByType(BurgerType.XBacon);
+
+            saleBurger.SetIngredientQuantity(repository.GetIngredientByType(IngredientType.Cheese), 3);
+            burger.SetIngredientQuantity(repository.GetIngredientByType(IngredientType.Cheese), 2);
+
+            var saleBurgerPrice = saleBurger.Price(new ExtraCheese());
             var burgerPrice = burger.Price();
 
             Assert.AreEqual<decimal>(burgerPrice, saleBurgerPrice);
