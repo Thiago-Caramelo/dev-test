@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Domain;
 
 namespace Infra
@@ -7,5 +8,6 @@ namespace Infra
     {
         Burger GetBurgerByType(BurgerType type);
         Ingredient GetIngredientByType(IngredientType ingredientType);
+        IList<Burger> GetMenuBurgers();
     }    
 }
