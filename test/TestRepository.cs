@@ -71,5 +71,10 @@ namespace Test
                 Price = ingredient.Price
             };
         }
+
+        public IList<Burger> GetMenuBurgers()
+        {
+            return _localBurgerDb;
+        }
     }
 }
