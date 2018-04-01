@@ -12,7 +12,7 @@ namespace Domain
             Name = name;
             Description = description;
             Type = type;
-            BurgerIngredients = burgerIngredients;
+            BurgerIngredients = new List<BurgerIngredient>(burgerIngredients);
         }
         public string Name { get; private set; }
         public string Description { get; private set; }
@@ -55,7 +55,8 @@ namespace Domain
             }
             else
             {
-                existingIngredient.Qty = qty;
+                BurgerIngredients.Remove(existingIngredient);
+                BurgerIngredients.Add(new BurgerIngredient() { Ingredient = ingredient, Qty = qty } );
             }
         }
     }

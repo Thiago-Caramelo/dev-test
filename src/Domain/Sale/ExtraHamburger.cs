@@ -13,15 +13,15 @@ namespace Domain.Sale
 
             if (burger == null) throw new ArgumentNullException("burguer");
 
-            var hasBurger = burger.BurgerIngredients
+            var hasBurgerQtyMultipleOfThree = burger.BurgerIngredients
             .Any(has => has.Ingredient.IngredientType == IngredientType.Hamburger && has.Qty % 3 == 0);
 
-            if (hasBurger) {
+            if (hasBurgerQtyMultipleOfThree) {
                 var hamburgerIngredient = burger.BurgerIngredients.FirstOrDefault(has => has.Ingredient.IngredientType == IngredientType.Hamburger);
                 var hamburgerQty= hamburgerIngredient?.Qty;
                 var saleQty = hamburgerQty / DISCOUNT;
                 var qtyDiscount = hamburgerQty - saleQty;
-                saleDiscount.Discount = qtyDiscount.HasValue ? qtyDiscount.Value : decimal.Zero * hamburgerIngredient.Ingredient.Price;
+                saleDiscount.Discount = (qtyDiscount.HasValue ? qtyDiscount.Value : decimal.Zero) * hamburgerIngredient.Ingredient.Price;
             }
 
             return saleDiscount;

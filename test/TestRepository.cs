@@ -57,11 +57,19 @@ namespace Test
         }
         public Burger GetBurgerByType(BurgerType type)
         {
-            return _localBurgerDb.FirstOrDefault(filter => filter.Type == type);
+            var burger = _localBurgerDb.FirstOrDefault(filter => filter.Type == type);
+            return new Burger(burger.Name, burger.BurgerIngredients, burger.Type, burger.Description);
         }
         public Ingredient GetIngredientByType(IngredientType ingredientType)
         {
-            return _ingredients[ingredientType];
+            var ingredient = _ingredients[ingredientType];
+            return new Ingredient()
+            {
+                Description = ingredient.Description,
+                IngredientID = ingredient.IngredientID,
+                IngredientType = ingredient.IngredientType,
+                Price = ingredient.Price
+            };
         }
     }
 }
