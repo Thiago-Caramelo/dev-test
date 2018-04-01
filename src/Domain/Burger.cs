@@ -7,9 +7,18 @@ namespace Domain
 {
     public class Burger
     {
-        public IList<BurgerIngredient> BurgerIngredients { get; set; } = new List<BurgerIngredient>();
-        public BurgerType Type { get; set; }
-        public IList<SaleDiscount> SaleDiscounts { get; set; } = new List<SaleDiscount>();
+        public Burger(string name, IList<BurgerIngredient> burgerIngredients, BurgerType type, string description = null)
+        {
+            Name = name;
+            Description = description;
+            Type = type;
+            BurgerIngredients = burgerIngredients;
+        }
+        public string Name { get; private set; }
+        public string Description { get; private set; }
+        public IList<BurgerIngredient> BurgerIngredients { get; private set; } = new List<BurgerIngredient>();
+        public BurgerType Type { get; private set; }
+        public IList<SaleDiscount> SaleDiscounts { get; private set; } = new List<SaleDiscount>();
         public decimal Price()
         {
             return Price(new List<ISale>());
@@ -37,7 +46,17 @@ namespace Domain
 
             return total;
         }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public void SetIngredientQuantity(Ingredient ingredient, int qty)
+        {
+            var existingIngredient = BurgerIngredients.FirstOrDefault(type => type.Ingredient.IngredientType == ingredient.IngredientType);
+
+            if (existingIngredient == null) {
+                BurgerIngredients.Add(new BurgerIngredient() { Ingredient = ingredient, Qty = qty } );
+            }
+            else
+            {
+                existingIngredient.Qty = qty;
+            }
+        }
     }
 }
