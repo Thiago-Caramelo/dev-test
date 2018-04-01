@@ -1,3 +1,5 @@
+@model app.Models.BurgerMenuViewModel
+
 <div class="container">
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
@@ -42,55 +44,43 @@
         </div>
         <div class="col-md-8 order-md-1">
             <div class="card-deck mb-3 text-center">
-                <div class="card mb-4 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">X-Bacon</h4>
+                @foreach (var burger in Model.Burgers) {
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">@burger.BurgerName</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">R$ @burger.BurgerPrice
+                            </h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                @foreach (var ingredientDescription in burger.IngredientsDescription)
+                                {
+                                    <li>@ingredientDescription</li>
+                                }
+                            </ul>
+                            <button type="button" class="btn btn-lg btn-block btn-primary">Comprar</button>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">R$ 8,50
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>10 users included</li>
-                            <li>2 GB of storage</li>
-                            <li>Email support</li>
-                            <li>Help center access</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Escolher Ingredientes</button>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Comprar</button>
-                    </div>
-                </div>
-                <div class="card mb-4 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Pro</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$15
-                            <small class="text-muted">/ mo</small>
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>20 users included</li>
-                            <li>10 GB of storage</li>
-                            <li>Priority email support</li>
-                            <li>Help center access</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Get started</button>
-                    </div>
-                </div>
-                <div class="card mb-4 box-shadow">
-                    <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Enterprise</h4>
-                    </div>
-                    <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$29
-                            <small class="text-muted">/ mo</small>
-                        </h1>
-                        <ul class="list-unstyled mt-3 mb-4">
-                            <li>30 users included</li>
-                            <li>15 GB of storage</li>
-                            <li>Phone and email support</li>
-                            <li>Help center access</li>
-                        </ul>
-                        <button type="button" class="btn btn-lg btn-block btn-primary">Contact us</button>
+                }
+
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-deck mb-3 text-center">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-header">
+                                <h4 class="my-0 font-weight-normal">Monte o seu</h4>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-unstyled mt-3 mb-4">
+                                    @foreach (var ingredients in Model.Ingredients)
+                                    {
+                                        <li>@ingredients.IngredientDescription</li>
+                                    }
+                                </ul>                                
+                                <button type="button" class="btn btn-lg btn-block btn-primary">Comprar</button>
+                            </div>
+                        </div>                        
                     </div>
                 </div>
             </div>

@@ -12,18 +12,34 @@ namespace app.Controllers
 {
     public class MenuController : Controller
     {
-        private readonly IRepository _repository;
         private readonly MenuService _menuService;
-        public MenuController(IRepository repository, MenuService menuService)
+        public MenuController(MenuService menuService)
         {
-            _repository = repository;
             _menuService = menuService;
         }
         public IActionResult Index()
         {
-            var burgers = _repository.GetMenuBurgers();
+            var burgers = _menuService.GetMenuBurgers();
+            var ingredients = _menuService.GetIngredients();
 
-            return View();
+            var menuViewModel = new BurgerMenuViewModel();
+            var burgersViewModel = new List<BurgerViewModel>();
+
+            foreach (var burger in burgers)
+            {
+                burgersViewModel.Add(new BurgerViewModel(burger));
+            }
+
+            menuViewModel.Burgers = burgersViewModel;
+            menuViewModel.Ingredients = ingredients
+                .Select(ingredient => new IngredientViewModel()
+                    {
+                        IngredientDescription = ingredient.Description,
+                        IngredientQty = 1,
+                        IngredientType = ingredient.IngredientType
+                    });
+
+            return View(menuViewModel);
         }
     }
 }

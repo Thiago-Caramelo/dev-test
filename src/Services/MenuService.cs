@@ -16,5 +16,10 @@ namespace Services
         {
             return _repository.GetMenuBurgers();
         }
+
+        public IList<Ingredient> GetIngredients()
+        {
+            return _repository.GetIngredients();
+        }
     }
 }

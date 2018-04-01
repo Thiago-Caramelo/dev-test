@@ -72,6 +72,11 @@ namespace Test
             };
         }
 
+        public IList<Ingredient> GetIngredients()
+        {
+            return _ingredients.Values.ToList();
+        }
+
         public IList<Burger> GetMenuBurgers()
         {
             return _localBurgerDb;

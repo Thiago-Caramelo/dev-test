@@ -9,5 +9,6 @@ namespace Infra
         Burger GetBurgerByType(BurgerType type);
         Ingredient GetIngredientByType(IngredientType ingredientType);
         IList<Burger> GetMenuBurgers();
+        IList<Ingredient> GetIngredients();
     }    
 }
