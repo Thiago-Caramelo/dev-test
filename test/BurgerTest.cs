@@ -12,11 +12,9 @@ namespace Test
             const decimal xBaconPrice = 6.50m;
 
             var repository = new TestRepository();
-            var burger = repository.GetBurguerByType(BurgerType.XBacon);
+            var burger = repository.GetBurgerByType(BurgerType.XBacon);
             var burgerPrice = burger.Price();
             Assert.AreEqual<decimal>(xBaconPrice, burgerPrice);
-            // pegar a quantidade pedida e ver se é multiplo de 3, ou seja se dividir por 3 e não tive resto
-            // para saber quanto o cliente vai pagar é só dividir por 1,5
         }
         [TestMethod]
         public void XBurger_Price_Should_Be_4_50()
@@ -24,7 +22,7 @@ namespace Test
             const decimal xBurgerPrice = 4.50m;
 
             var repository = new TestRepository();
-            var burger = repository.GetBurguerByType(BurgerType.XBurguer);
+            var burger = repository.GetBurgerByType(BurgerType.XBurguer);
             var burgerPrice = burger.Price();
             Assert.AreEqual<decimal>(xBurgerPrice, burgerPrice);
         }
@@ -34,7 +32,7 @@ namespace Test
             const decimal xEggPrice = 5.30m;
 
             var repository = new TestRepository();
-            var burger = repository.GetBurguerByType(BurgerType.XEgg);
+            var burger = repository.GetBurgerByType(BurgerType.XEgg);
             var burgerPrice = burger.Price();
             Assert.AreEqual(xEggPrice, burgerPrice);
         }
@@ -44,7 +42,7 @@ namespace Test
             const decimal xEggBaconPrice = 7.30m;
 
             var repository = new TestRepository();
-            var burger = repository.GetBurguerByType(BurgerType.XEggBacon);
+            var burger = repository.GetBurgerByType(BurgerType.XEggBacon);
             var burgerPrice = burger.Price();
             Assert.AreEqual<decimal>(xEggBaconPrice, burgerPrice);
         }
