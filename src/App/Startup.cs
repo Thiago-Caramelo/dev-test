@@ -34,6 +34,7 @@ namespace app
 
             services.AddTransient<IRepository, InMemoryRepository>();
             services.AddTransient<MenuService>();
+            services.AddTransient<OrderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
