@@ -11,6 +11,10 @@ namespace Services
         {
             _repository = repository;
         }
+        public Order GetOrderByCartId(string cartId)
+        {
+            return _repository.GetOrderByCartId(cartId);
+        }
         public Order OrderBurger(string cartId, Burger burger) {
 
             var order = _repository.GetOrderByCartId(cartId);

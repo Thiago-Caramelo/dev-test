@@ -18,18 +18,18 @@ else
             <div>
                 <h6 class="my-0">@burger.BurgerName</h6>
             </div>
-            <span class="text-muted">R$ @burger.Price</span>
+            <span class="text-muted">R$ @string.Format("{0:0.00}", @burger.Price)</span>
         </li>
         }
         <li class="list-group-item d-flex justify-content-between bg-light">
             <div class="text-success">
-                <h6 class="my-0">Descontos</h6>
+                <h6 class="my-0">Desconto incluso</h6>
             </div>
-            <span class="text-success">R$ -@Model.TotalDiscount</span>
+            <span class="text-success">R$ @string.Format("{0:0.00}", @Model.TotalDiscount)</span>
         </li>
         <li class="list-group-item d-flex justify-content-between">
             <span>Total</span>
-            <strong>R$ @Model.Total</strong>
+            <strong>R$ @string.Format("{0:0.00}", @Model.Total)</strong>
         </li>
     </ul>
 }

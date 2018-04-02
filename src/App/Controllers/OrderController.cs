@@ -56,7 +56,7 @@ namespace app.Controllers
                 BurgerPrices = orderBurgersPrices,
                 TotalDiscount = orderBurgersPrices.Sum(sum => sum.Discount),
                 BurgerQty = order.QtyBurgers(),
-                Total = orderBurgersPrices.Sum(sum => sum.Price) - orderBurgersPrices.Sum(sum => sum.Discount)
+                Total = orderBurgersPrices.Sum(sum => sum.Price)
             };
 
             return PartialView("Cart", cartViewModel);

@@ -14,9 +14,15 @@ namespace app.Controllers
     public class MenuController : Controller
     {
         private readonly MenuService _menuService;
-        public MenuController(MenuService menuService)
+        private readonly IUtil _util;
+        private readonly OrderService _orderService;
+        private readonly SaleService _saleService;
+        public MenuController(MenuService menuService, IUtil util, OrderService orderService, SaleService saleService)
         {
             _menuService = menuService;
+            _util = util;
+            _orderService = orderService;
+            _saleService = saleService;
         }
         public IActionResult Index()
         {
@@ -40,7 +46,20 @@ namespace app.Controllers
                         IngredientType = ingredient.IngredientType
                     });
 
-            menuViewModel.CartViewModel = new CartViewModel() { BurgerPrices = new List<BurgerPrice>() };
+            var cartId = _util.GetCartId();
+            var order = _orderService.GetOrderByCartId(cartId);
+
+            if (order != null) {
+                var orderBurgersPrices = order.OrderBurgersPrices(_saleService.GetActiveSales());
+                var cartViewModel = new CartViewModel()
+                {
+                    BurgerPrices = orderBurgersPrices,
+                    TotalDiscount = orderBurgersPrices.Sum(sum => sum.Discount),
+                    BurgerQty = order.QtyBurgers(),
+                    Total = orderBurgersPrices.Sum(sum => sum.Price)
+                };
+                menuViewModel.CartViewModel = cartViewModel;
+            }
 
             return View(menuViewModel);
         }
