@@ -29,7 +29,7 @@ namespace app
 
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromHours(1);
                 options.Cookie.HttpOnly = true;
             });
 
