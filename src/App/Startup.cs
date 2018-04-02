@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Infra;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Services;
@@ -32,9 +33,12 @@ namespace app
                 options.Cookie.HttpOnly = true;
             });
 
-            services.AddTransient<IRepository, InMemoryRepository>();
+            services.AddSingleton<IRepository, InMemoryRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<MenuService>();
             services.AddTransient<OrderService>();
+            services.AddTransient<SaleService>();
+            services.AddTransient<IUtil, Util>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
