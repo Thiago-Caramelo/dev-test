@@ -22,7 +22,7 @@ namespace app.Controllers
         [HttpPost("Burger")]
         public IActionResult AddBurger([FromBody]BurgerOrderViewModel burgerOrder)
         {
-            return Json(true);
+            return PartialView("Cart", new CartViewModel());
         }
     }
 }
