@@ -3,11 +3,19 @@ using System.Collections.Generic;
 using Domain;
 using Infra;
 using System.Linq;
+using Domain.Sale;
 
 namespace Infra
 {
     public class InMemoryRepository : IRepository
     {
+        private readonly IList<Sale> _sales = new List<Sale>()
+        {
+            new Sale() { SaleType = SaleType.ExtraCheese },
+            new Sale() { SaleType = SaleType.ExtraHamburger },
+            new Sale() { SaleType = SaleType.LighSale }
+        };
+        private readonly IList<Order> _orders = new List<Order>();
         private readonly Dictionary<IngredientType, Ingredient> _ingredients = new Dictionary<IngredientType, Ingredient>()
         {
             { IngredientType.Lettuce, new Ingredient () { Description = "Alface", Price = 0.40m, IngredientType = IngredientType.Lettuce } },
@@ -56,6 +64,11 @@ namespace Infra
             _localBurgerDb.Add(xEgg);
             _localBurgerDb.Add(xEggBacon);
         }
+        public IList<Sale> GetActiveSales()
+        {
+            return _sales;
+        }
+
         public Burger GetBurgerByType(BurgerType type)
         {
             var burger = _localBurgerDb.FirstOrDefault(filter => filter.Type == type);
@@ -81,6 +94,16 @@ namespace Infra
         public IList<Burger> GetMenuBurgers()
         {
             return _localBurgerDb;
+        }
+
+        public Order GetOrderByCartId(string cartId)
+        {
+            return _orders.FirstOrDefault(has => has.CartId == cartId);
+        }
+
+        public void SaveOrder(Order order)
+        {
+            _orders.Add(order);
         }
     }
 }

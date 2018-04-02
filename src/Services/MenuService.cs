@@ -21,5 +21,15 @@ namespace Services
         {
             return _repository.GetIngredients();
         }
+
+        public Ingredient GetIngredientByType(IngredientType ingredientType)
+        {
+            return _repository.GetIngredientByType(ingredientType);
+        }
+        public Burger GetBurgerByType(BurgerType burgerType)
+        {
+            return _repository.GetBurgerByType(burgerType);
+        }
     }
 }
+

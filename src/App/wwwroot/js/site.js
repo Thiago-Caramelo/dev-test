@@ -5,7 +5,7 @@
     }
 
     function addBurger(burgerType) {
-        debugger;
+        
         var burger = {
             BurgerType : burgerType
         }

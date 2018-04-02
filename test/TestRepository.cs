@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Domain;
 using Infra;
 using System.Linq;
+using Domain.Sale;
 
 namespace Test
 {
@@ -55,6 +56,12 @@ namespace Test
             _localBurgerDb.Add(xEgg);
             _localBurgerDb.Add(xEggBacon);
         }
+
+        public IList<Sale> GetActiveSales()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Burger GetBurgerByType(BurgerType type)
         {
             var burger = _localBurgerDb.FirstOrDefault(filter => filter.Type == type);
@@ -80,6 +87,16 @@ namespace Test
         public IList<Burger> GetMenuBurgers()
         {
             return _localBurgerDb;
+        }
+
+        public Order GetOrderByCartId(string cartId)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void SaveOrder(Order order)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

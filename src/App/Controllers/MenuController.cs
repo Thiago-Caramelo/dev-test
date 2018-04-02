@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using app.Models;
 using Infra;
 using Services;
+using Domain;
 
 namespace app.Controllers
 {
@@ -38,6 +39,8 @@ namespace app.Controllers
                         IngredientQty = 1,
                         IngredientType = ingredient.IngredientType
                     });
+
+            menuViewModel.CartViewModel = new CartViewModel() { BurgerPrices = new List<BurgerPrice>() };
 
             return View(menuViewModel);
         }
