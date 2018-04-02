@@ -1,22 +1,21 @@
 ﻿(function($, window, document) {
 
-    function addMenuBurger(burgerType) {
-
-    }
-
     function addBurger(burgerType) {
         
         var burger = {
-            BurgerType : burgerType
+            burgerType : burgerType,
+            burgerIngredients : []
         }
 
         if (burgerType === "XCustom") {
-            burger.BurgerIngredients = [];
-
             $('input[data-ingredient-type]').each(function() {
                 var ingredientType = $(this).attr("data-ingredient-type");
                 var qty = $(this).val();
-                burger.BurgerIngredients.push({IngredientType : ingredientType, IngredientQty : qty});
+                var qtyNumber = parseInt(qty);
+                if (qtyNumber)
+                {
+                    burger.burgerIngredients.push({ingredientType : ingredientType, ingredientQty : qty, ingredientDescription : ''});
+                }
             });
         }
 
@@ -24,7 +23,7 @@
             type : "POST",
             url : "Order/Burger",
             data : JSON.stringify(burger),
-            contentType : "application/json: charset=utf-8"
+            contentType : "application/json"
         })
         .done(function(response) {
             $("#cartPlaceHolder").html(response);

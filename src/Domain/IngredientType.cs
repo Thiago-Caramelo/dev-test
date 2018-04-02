@@ -1,5 +1,9 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 namespace Domain
 {
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum IngredientType
     {
         Lettuce = 1,
